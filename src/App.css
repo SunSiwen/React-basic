@@ -1,0 +1,30 @@
+.app {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  display: inline-block;
+}
+
+.card li {
+  margin: 0.5rem 0;
+}
+
+.hint {
+  color: #888;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
