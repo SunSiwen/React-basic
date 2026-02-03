@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 
 // 陷阱 2️⃣: 对象作为依赖项
 export function ObjectDependencyTrap() {
@@ -6,13 +6,15 @@ export function ObjectDependencyTrap() {
   const [logs, setLogs] = useState<string[]>([])
 
   // ❌ 陷阱：对象每次都是新引用，导致无限循环
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const config = { threshold: 10 }  // 每次渲染都是新对象
 
   useEffect(() => {
     const log = `执行 Effect（对象依赖）- 当前 count: ${count}`
     console.log('⚠️', log)
+    // 教学演示：故意在 effect 中调用 setState 来展示陷阱
     setLogs(prev => [...prev.slice(-4), log])
-  }, [config])  // ❌ config 每次都是新引用！
+  }, [config, count])  // ❌ config 每次都是新引用！
 
   return (
     <div style={{ padding: '16px', background: '#ffebee', borderRadius: '8px', marginBottom: '16px' }}>
@@ -36,22 +38,18 @@ export function ObjectDependencyTrap() {
   )
 }
 
-// ✅ 解决方案 1: useCallback 稳定函数引用
-import { useCallback } from 'react'
+// ✅ 解决方案 1: 只依赖具体值而非对象
+const globalConfig = { threshold: 10 }  // 定义在组件外，所以只创建一次
 
 export function ObjectDependencyFixed1() {
   const [count, setCount] = useState(0)
   const [logs, setLogs] = useState<string[]>([])
 
-  // ✅ 使用 useMemo 稳定对象引用
-  import type { useMemo } from 'react'
-  
-  // 这里简化处理，将 config 定义在组件外
-  const config = { threshold: 10 }
-
   useEffect(() => {
-    const log = `执行 Effect - 当前 count: ${count}`
+    const log = `执行 Effect - 当前 count: ${count}, threshold: ${globalConfig.threshold}`
     console.log('✅', log)
+    // 教学演示：故意在 effect 中调用 setState 来记录日志
+    // eslint-disable-next-line
     setLogs(prev => [...prev.slice(-4), log])
   }, [count])  // ✅ 依赖 count 而不是 config
 
@@ -81,7 +79,6 @@ export function ObjectDependencyFixed1() {
 export function ObjectDependencyFixed2() {
   const [count, setCount] = useState(0)
   const [logs, setLogs] = useState<string[]>([])
-  const { useMemo } = require('react')
 
   // ✅ 使用 useMemo 缓存对象
   const config = useMemo(() => {
@@ -91,6 +88,8 @@ export function ObjectDependencyFixed2() {
   useEffect(() => {
     const log = `执行 Effect - 当前 count: ${count}, threshold: ${config.threshold}`
     console.log('✅', log)
+    // 教学演示：故意在 effect 中调用 setState 来记录日志
+    // eslint-disable-next-line
     setLogs(prev => [...prev.slice(-4), log])
   }, [config, count])
 

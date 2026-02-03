@@ -6,10 +6,13 @@ export function ClosureTrap() {
   const [logs, setLogs] = useState<string[]>([])
 
   // ❌ 陷阱：count 被使用但没有作为依赖
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const handleClick = () => {
       // count 永远是 0（闭包陷阱）
       console.log('❌ 陷阱：count =', count)
+      // 教学演示：故意在 effect 中调用 setState 来记录日志
+      // eslint-disable-next-line
       setLogs(prev => [...prev.slice(-4), `❌ 陷阱：count = ${count}`])
     }
 
@@ -62,6 +65,8 @@ export function ClosureTrapFixed() {
   useEffect(() => {
     const handleClick = () => {
       console.log('✅ 正确：count =', count)
+      // 教学演示：故意在 effect 中调用 setState 来记录日志
+      // eslint-disable-next-line
       setLogs(prev => [...prev.slice(-4), `✅ 正确：count = ${count}`])
     }
 

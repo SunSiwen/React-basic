@@ -1,17 +1,24 @@
 import { useEffect, useState } from 'react'
 
+interface User {
+  id: number
+  name: string
+}
+
 // 陷阱 3️⃣: 竞态条件（Race Condition）
 export function RaceConditionTrap() {
   const [userId, setUserId] = useState(1)
-  const [user, setUser] = useState<any>(null)
+  const [user, setUser] = useState<User | null>(null)
   const [requestLogs, setRequestLogs] = useState<string[]>([])
 
   useEffect(() => {
+    // 教学演示：故意在 effect 中调用 setState 来记录日志
+    // eslint-disable-next-line
     setRequestLogs(prev => [...prev, `📤 请求用户 ${userId}`])
 
     // 模拟 API 请求
-    const timer = setTimeout(() => {
-      const mockUsers: Record<number, any> = {
+    setTimeout(() => {
+      const mockUsers: Record<number, User> = {
         1: { id: 1, name: '张三' },
         2: { id: 2, name: '李四' },
         3: { id: 3, name: '王五' }
@@ -73,10 +80,12 @@ export function RaceConditionTrap() {
 // ✅ 解决方案: 取消前一个请求
 export function RaceConditionFixed() {
   const [userId, setUserId] = useState(1)
-  const [user, setUser] = useState<any>(null)
+  const [user, setUser] = useState<User | null>(null)
   const [requestLogs, setRequestLogs] = useState<string[]>([])
 
   useEffect(() => {
+    // 教学演示：故意在 effect 中调用 setState 来记录日志
+    // eslint-disable-next-line
     setRequestLogs(prev => [...prev.slice(-5), `📤 请求用户 ${userId}`])
     
     let isMounted = true  // ✅ 标记组件是否仍在挂载
@@ -84,7 +93,7 @@ export function RaceConditionFixed() {
     const timer = setTimeout(() => {
       if (!isMounted) return  // ✅ 如果组件卸载，不执行
       
-      const mockUsers: Record<number, any> = {
+      const mockUsers: Record<number, User> = {
         1: { id: 1, name: '张三' },
         2: { id: 2, name: '李四' },
         3: { id: 3, name: '王五' }

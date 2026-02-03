@@ -8,6 +8,8 @@ export function MultipleEffects() {
 
   const addLog = (message: string) => {
     console.log(message)
+    // 教学演示：故意在 effect 中调用 setState 来记录日志
+    // eslint-disable-next-line
     setLogs(prev => [...prev.slice(-5), message])
   }
 

@@ -32,7 +32,7 @@ export function EffectCleanup() {
       </div>
 
       <div style={{ marginTop: '8px', padding: '8px', background: '#fff3cd', borderRadius: '4px', fontSize: '13px' }}>
-        💡 <code>return () =&gt; {...}</code> - 清理函数在组件卸载或依赖更新前执行
+        💡 <code>{'return () => {...}'}</code> - 清理函数在组件卸载或依赖更新前执行
       </div>
     </div>
   )

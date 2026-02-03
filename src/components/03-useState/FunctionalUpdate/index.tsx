@@ -32,7 +32,7 @@ export function FunctionalUpdate() {
       {' '}
       <button onClick={() => setCount(0)}>重置</button>
       <div style={{ marginTop: '10px', fontSize: '14px', color: '#666' }}>
-        💡 当新状态依赖旧状态时，使用 <code>setCount(prev =&gt; prev + 1)</code>
+        💡 当新状态依赖旧状态时，使用 <code>{'setCount(prev => prev + 1)'}</code>
       </div>
     </div>
   )

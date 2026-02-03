@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './components/App.css'
+import './App.css'
 // 导入子组件（一个组件一个文件夹）
 import { Greeting } from './components/01-basic/Greeting'
 import { CounterButton } from './components/01-basic/CounterButton'

@@ -76,7 +76,7 @@ export function UseRefDemo() {
           <li>✅ 总是检查 <code>ref.current !== null</code></li>
           <li>✅ 在 useEffect 中修改 ref，不在渲染期间</li>
           <li>✅ 当需要改变 UI 时用 useState 而不是 useRef</li>
-          <li>✅ 为 ref 添加类型标注：<code>useRef&lt;HTMLInputElement&gt;(null)</code></li>
+          <li>✅ 为 ref 添加类型标注：<code>{'useRef<HTMLInputElement>(null)'}</code></li>
           <li>✅ 在清理函数中清理 ref（如定时器）</li>
         </ul>
       </div>

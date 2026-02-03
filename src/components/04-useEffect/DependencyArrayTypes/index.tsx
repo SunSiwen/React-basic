@@ -23,19 +23,19 @@ export function DependencyArrayTypes() {
         <tbody>
           <tr style={{ borderBottom: '1px solid #eee' }}>
             <td style={{ padding: '12px' }}>❌ 无依赖</td>
-            <td style={{ padding: '12px', fontFamily: 'monospace', fontSize: '12px' }}>useEffect(() =&gt; {...})</td>
+            <td style={{ padding: '12px', fontFamily: 'monospace', fontSize: '12px' }}>{'useEffect(() => {...})'}</td>
             <td style={{ padding: '12px' }}>每次渲染都执行</td>
             <td style={{ padding: '12px', color: '#d32f2f' }}>⚠️ 通常有问题</td>
           </tr>
           <tr style={{ borderBottom: '1px solid #eee' }}>
             <td style={{ padding: '12px' }}>✅ 空数组</td>
-            <td style={{ padding: '12px', fontFamily: 'monospace', fontSize: '12px' }}>useEffect(() =&gt; {...}, [])</td>
+            <td style={{ padding: '12px', fontFamily: 'monospace', fontSize: '12px' }}>{'useEffect(() => {...}, [])'}</td>
             <td style={{ padding: '12px' }}>只在挂载时执行一次</td>
             <td style={{ padding: '12px', color: '#388e3c' }}>初始化、一次性请求</td>
           </tr>
           <tr>
             <td style={{ padding: '12px' }}>✅ 有依赖项</td>
-            <td style={{ padding: '12px', fontFamily: 'monospace', fontSize: '12px' }}>useEffect(() =&gt; {...}, [dep])</td>
+            <td style={{ padding: '12px', fontFamily: 'monospace', fontSize: '12px' }}>{'useEffect(() => {...}, [dep])'}</td>
             <td style={{ padding: '12px' }}>依赖项改变时执行</td>
             <td style={{ padding: '12px', color: '#388e3c' }}>响应特定变化</td>
           </tr>

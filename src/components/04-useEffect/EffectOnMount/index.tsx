@@ -18,7 +18,7 @@ export function EffectOnMount() {
         打开控制台，刷新页面，你会看到 "组件挂载了" 只打印一次
       </p>
       <div style={{ marginTop: '8px', padding: '8px', background: '#fff3cd', borderRadius: '4px', fontSize: '13px' }}>
-        💡 <code>useEffect(() =&gt; {...}, [])</code> - 只在挂载时执行
+        💡 <code>{'useEffect(() => {...}, [])'}</code> - 只在挂载时执行
       </div>
     </div>
   )

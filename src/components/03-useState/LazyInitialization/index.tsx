@@ -35,7 +35,7 @@ export function LazyInitialization() {
         💡 打开控制台，点击按钮观察：惰性初始化函数只执行一次
       </div>
       <div style={{ marginTop: '8px', padding: '8px', background: '#fff3cd', borderRadius: '4px', fontSize: '13px' }}>
-        <code>useState(() =&gt; expensiveCalculation())</code> 比 <code>useState(expensiveCalculation())</code> 更高效
+        <code>{'useState(() => expensiveCalculation())'}</code> 比 <code>useState(expensiveCalculation())</code> 更高效
       </div>
     </div>
   )

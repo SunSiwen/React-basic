@@ -54,7 +54,7 @@ export function EffectWithDependencies() {
       </div>
 
       <div style={{ marginTop: '8px', padding: '8px', background: '#fff3cd', borderRadius: '4px', fontSize: '13px' }}>
-        💡 <code>useEffect(() =&gt; {...}, [count])</code> - 只在 count 变化时执行
+        💡 <code>{'useEffect(() => {...}, [count])'}</code> - 只在 count 变化时执行
       </div>
     </div>
   )

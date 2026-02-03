@@ -38,25 +38,25 @@ export function UseEffectDemo() {
           <div style={{ marginBottom: '16px' }}>
             <strong>🔵 挂载（Mount）- 组件首次渲染</strong>
             <p style={{ margin: '4px 0 0 0', opacity: 0.9 }}>
-              <code>useEffect(() =&gt; {...}, [])</code> - 依赖数组为空时执行一次
+              <code>{'useEffect(() => {...}, [])'}</code> - 依赖数组为空时执行一次
             </p>
           </div>
           <div style={{ marginBottom: '16px' }}>
             <strong>🟡 更新（Update）- 依赖项变化</strong>
             <p style={{ margin: '4px 0 0 0', opacity: 0.9 }}>
-              <code>useEffect(() =&gt; {...}, [dep1, dep2])</code> - 依赖项变化时执行
+              <code>{'useEffect(() => {...}, [dep1, dep2])'}</code> - 依赖项变化时执行
             </p>
           </div>
           <div style={{ marginBottom: '16px' }}>
             <strong>🔴 卸载（Unmount）- 组件销毁或依赖更新前</strong>
             <p style={{ margin: '4px 0 0 0', opacity: 0.9 }}>
-              <code>useEffect(() =&gt; { return () =&gt; {...} })</code> - 返回清理函数
+              <code>{'useEffect(() => { return () => {...} })'}</code> - 返回清理函数
             </p>
           </div>
           <div>
             <strong>⚠️ 陷阱 - 无依赖数组</strong>
             <p style={{ margin: '4px 0 0 0', opacity: 0.9 }}>
-              <code>useEffect(() =&gt; {...})</code> - 每次渲染都执行，通常导致性能问题
+              <code>{'useEffect(() => {...})'}</code> - 每次渲染都执行，通常导致性能问题
             </p>
           </div>
         </div>

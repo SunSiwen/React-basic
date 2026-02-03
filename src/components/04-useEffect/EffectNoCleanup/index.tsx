@@ -26,7 +26,7 @@ export function EffectNoCleanup() {
       </div>
 
       <div style={{ marginTop: '8px', padding: '8px', background: '#ffebee', borderRadius: '4px', fontSize: '13px' }}>
-        ⚠️ <code>useEffect(() =&gt; {...})</code> - 每次渲染都执行，通常会导致性能问题
+        ⚠️ <code>{'useEffect(() => {...})'}</code> - 每次渲染都执行，通常会导致性能问题
       </div>
     </div>
   )

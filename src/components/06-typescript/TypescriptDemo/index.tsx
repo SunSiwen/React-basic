@@ -156,10 +156,10 @@ export function TypescriptDemo() {
       }}>
         <h3>⚡ 快速参考</h3>
         <div style={{ marginTop: '12px', fontFamily: 'monospace', fontSize: '13px', lineHeight: '2.2' }}>
-          <div>const [count, setCount] = useState(number)(0)</div>
-          <div>const ref = useRef(HTMLInputElement)(null)</div>
-          <div>const handleClick = (e: React.MouseEvent) =&gt; void</div>
-          <div>useEffect(() =&gt; void | cleanup, [dep])</div>
+          <div>{'const [count, setCount] = useState<number>(0)'}</div>
+          <div>{'const ref = useRef<HTMLInputElement>(null)'}</div>
+          <div>{'const handleClick = (e: React.MouseEvent) => void'}</div>
+          <div>{'useEffect(() => void | cleanup, [dep])'}</div>
         </div>
       </div>
 
@@ -185,19 +185,19 @@ export function TypescriptDemo() {
             <tr style={{ borderBottom: '1px solid #ffe0b2' }}>
               <td style={{ padding: '8px' }}>useState(null)</td>
               <td style={{ padding: '8px' }}>null ❌</td>
-              <td style={{ padding: '8px' }}>&lt;T | null&gt;</td>
+              <td style={{ padding: '8px' }}>{'<T | null>'}</td>
               <td style={{ padding: '8px' }}>显式 ✅</td>
             </tr>
             <tr style={{ borderBottom: '1px solid #ffe0b2' }}>
               <td style={{ padding: '8px' }}>useState([])</td>
               <td style={{ padding: '8px' }}>never[] ❌</td>
-              <td style={{ padding: '8px' }}>&lt;T[]&gt;</td>
+              <td style={{ padding: '8px' }}>{'<T[]>'}</td>
               <td style={{ padding: '8px' }}>显式 ✅</td>
             </tr>
             <tr>
               <td style={{ padding: '8px' }}>useRef(null)</td>
               <td style={{ padding: '8px' }}>null ❌</td>
-              <td style={{ padding: '8px' }}>&lt;HTMLElement&gt;</td>
+              <td style={{ padding: '8px' }}>{'<HTMLElement>'}</td>
               <td style={{ padding: '8px' }}>显式 ✅</td>
             </tr>
           </tbody>

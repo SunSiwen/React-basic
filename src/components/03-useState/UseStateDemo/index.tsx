@@ -48,7 +48,7 @@ export function UseStateDemo() {
         <h3>📚 知识点总结</h3>
         <ul style={{ lineHeight: '1.8' }}>
           <li><strong>基本语法：</strong> <code style={{ background: 'rgba(255,255,255,0.2)', padding: '2px 6px', borderRadius: '3px' }}>const [state, setState] = useState(初始值)</code></li>
-          <li><strong>更新状态：</strong> <code style={{ background: 'rgba(255,255,255,0.2)', padding: '2px 6px', borderRadius: '3px' }}>setState(新值)</code> 或 <code style={{ background: 'rgba(255,255,255,0.2)', padding: '2px 6px', borderRadius: '3px' }}>setState(prev =&gt; 新值)</code></li>
+          <li><strong>更新状态：</strong> <code style={{ background: 'rgba(255,255,255,0.2)', padding: '2px 6px', borderRadius: '3px' }}>setState(新值)</code> 或 <code style={{ background: 'rgba(255,255,255,0.2)', padding: '2px 6px', borderRadius: '3px' }}>{'setState(prev => 新值)'}</code></li>
           <li><strong>对象/数组：</strong> 必须创建新对象/数组，不能直接修改</li>
           <li><strong>多个状态：</strong> 可以多次调用 useState</li>
           <li><strong>性能优化：</strong> 初始值计算复杂时使用惰性初始化</li>

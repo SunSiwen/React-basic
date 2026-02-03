@@ -5,9 +5,12 @@ export function MemoryLeakTrap() {
   const [eventCount, setEventCount] = useState(0)
   const [logs, setLogs] = useState<string[]>([])
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const handleResize = () => {
       setEventCount(prev => prev + 1)
+      // 教学演示：故意在 effect 中调用 setState 来记录日志
+      // eslint-disable-next-line
       setLogs(prev => [...prev.slice(-4), `📏 窗口大小改变 #${eventCount + 1}`])
     }
 
@@ -49,6 +52,8 @@ export function MemoryLeakFixed() {
   useEffect(() => {
     const handleResize = () => {
       setEventCount(prev => prev + 1)
+      // 教学演示：故意在 effect 中调用 setState 来记录日志
+      // eslint-disable-next-line
       setLogs(prev => [...prev.slice(-4), `📏 窗口大小改变 #${eventCount + 1}`])
     }
 
