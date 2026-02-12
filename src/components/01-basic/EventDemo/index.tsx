@@ -1,4 +1,5 @@
-import { useState, MouseEvent, ChangeEvent, KeyboardEvent } from 'react'
+import { useState } from 'react'
+import type { MouseEvent, ChangeEvent, KeyboardEvent } from 'react'
 
 // 事件处理示例组件
 export function EventDemo() {
@@ -39,7 +40,7 @@ export function EventDemo() {
   }
 
   // ========== 6. 阻止默认行为 ==========
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault() // 阻止表单提交刷新页面
     setMessage('表单提交被拦截了（没有刷新页面）')
   }
@@ -50,7 +51,7 @@ export function EventDemo() {
   }
 
   const handleChildClick = (e: MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation() // 阻止事件冒泡到父元素
+    // e.stopPropagation() // 阻止事件冒泡到父元素
     setMessage('子元素被点击（事件不会冒泡）')
   }
 
